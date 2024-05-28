@@ -43,7 +43,7 @@ public class AppointmentData {
     }
 
     public AppointmentData( Integer appointmentID, String name,String gender, Long mobileNumber,
-                           String description,String diagnosis, String treatment, String address, Date date, Date dateModify, Date DateDelete, String status, Date schedule){
+                            String description,String diagnosis, String treatment, String address, Date date, Date dateModify, Date DateDelete, String status, Date schedule){
         this.appointmentID = appointmentID;
         this.name = name;
         this.gender = gender;
@@ -67,6 +67,14 @@ public class AppointmentData {
         this.status = status;
     }
 
+    public AppointmentData(Integer appointmentID, String description, String diagnosis, String treatment, String teacherID, java.sql.Date schedule) {
+        this.appointmentID = appointmentID;
+        this.description = description;
+        this.diagnosis = diagnosis;
+        this.treatment = treatment;
+        this.teacherID = teacherID;
+        this.schedule = schedule;
+    }
     public Integer getId(){ return id;}
     public Integer getAppointmentID(){
         return appointmentID;

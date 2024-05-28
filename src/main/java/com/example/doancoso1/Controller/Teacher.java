@@ -168,65 +168,109 @@ public class Teacher implements Initializable {
         }
 
     }
-    public void registerAccount(){
-        if(register_fullname.getText().isEmpty()
-                || register_email.getText().isEmpty()
-                || register_teacherId.getText().isEmpty()
-                || register_password.getText().isEmpty()){
-            alert.errorMessage("Please fill all the fields");
-        }else{
-            String checkDoctor = "SELECT * FROM teacher WHERE teacher_id = '"
-                    + register_teacherId.getText() + "'";
+//    public void registerAccount(){
+//        if(register_fullname.getText().isEmpty()
+//                || register_email.getText().isEmpty()
+//                || register_teacherId.getText().isEmpty()
+//                || register_password.getText().isEmpty()){
+//            alert.errorMessage("Please fill all the fields");
+//        }else{
+//            String checkDoctor = "SELECT * FROM teacher WHERE teacher_id = '"
+//                    + register_teacherId.getText() + "'";
+//
+//            connect = Database.connectDb();
+//
+//            try{
+//                if(!register_showpassword.isVisible()){
+//                    if(!register_showpassword.getText().equals(register_password.getText())){
+//                        register_showpassword.setText(register_password.getText());
+//                    }else{
+//                        if(!register_showpassword.getText().equals(register_password.getText())){
+//                            register_password.setText(register_showpassword.getText());
+//                        }
+//                    }
+//                }
+//                prepare = connect.prepareStatement(checkDoctor);
+//                result = prepare.executeQuery();
+//
+//                if(result.next()){
+//                    alert.errorMessage(register_teacherId.getText() + " is already taken");
+//                }else if(register_password.getText().length() < 8){
+//                    alert.errorMessage("Inavlid password, at least 8 character needed");
+//                }else{
+//
+//                    String password = register_password.getText();
+//                    String hashedPassword = hashPassword(password);
+//
+//                    String insertData = "INSERT INTO teacher (fullname, email, teacher_id, password, date, status) "
+//                            + "VALUES(?,?,?,?,?,?)";
+//
+//                    prepare = connect.prepareStatement(insertData);
+//
+//                    Date date = new Date();
+//                    java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+//
+//                    prepare.setString(1, register_fullname.getText());
+//                    prepare.setString(2, register_email.getText());
+//                    prepare.setString(3, register_teacherId.getText());
+//                    prepare.setString(4, hashedPassword);
+//                    prepare.setString(5, String.valueOf(sqlDate));
+//                    prepare.setString(6, "Confirm");
+//
+//                    prepare.executeUpdate();
+//
+//                    alert.successMessage("Registered Successfully");
+//
+//                }
+//
+//            }catch(Exception e){
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 
+    @FXML
+    void registerAccount() {
+        if (!register_fullname.getText().isEmpty() && !register_email.getText().isEmpty() && !register_teacherId.getText().isEmpty() && !register_password.getText().isEmpty()) {
+            String checkDoctorID = "SELECT * FROM teacher WHERE teacher_id = '" + register_teacherId.getText() + "'";
             connect = Database.connectDb();
 
-            try{
-                if(!register_showpassword.isVisible()){
-                    if(!register_showpassword.getText().equals(register_password.getText())){
+            try {
+                if (!register_showpassword.isVisible()) {
+                    if (!register_showpassword.getText().equals(register_password.getText())) {
                         register_showpassword.setText(register_password.getText());
-                    }else{
-                        if(!register_showpassword.getText().equals(register_password.getText())){
-                            register_password.setText(register_showpassword.getText());
-                        }
                     }
+                } else if (!register_showpassword.getText().equals(register_password.getText())) {
+                    register_password.setText(register_showpassword.getText());
                 }
-                prepare = connect.prepareStatement(checkDoctor);
+
+                prepare = connect.prepareStatement(checkDoctorID);
                 result = prepare.executeQuery();
-
-                if(result.next()){
+                if (result.next()) {
                     alert.errorMessage(register_teacherId.getText() + " is already taken");
-                }else if(register_password.getText().length() < 8){
-                    alert.errorMessage("Inavlid password, at least 8 character needed");
-                }else{
-
-                    String password = register_password.getText();
-                    String hashedPassword = hashPassword(password);
-
-                    String insertData = "INSERT INTO teacher (fullname, email, teacher_id, password, date, status) "
-                            + "VALUES(?,?,?,?,?,?)";
-
+                } else if (register_password.getText().length() < 8) {
+                    alert.errorMessage("Invalid password, at least 8 characters needed");
+                } else {
+                    String insertData = "INSERT INTO teacher (fullname, email, teacher_id, password, date, status) VALUES(?,?,?,?,?,?)";
                     prepare = connect.prepareStatement(insertData);
-
                     Date date = new Date();
                     java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-
                     prepare.setString(1, register_fullname.getText());
                     prepare.setString(2, register_email.getText());
                     prepare.setString(3, register_teacherId.getText());
-                    prepare.setString(4, hashedPassword);
+                    prepare.setString(4, register_password.getText());
                     prepare.setString(5, String.valueOf(sqlDate));
                     prepare.setString(6, "Confirm");
-
                     prepare.executeUpdate();
-
-                    alert.successMessage("Registered Successfully");
-
+                    alert.successMessage("Registered Succesfully!");
                 }
-
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
+        } else {
+            this.alert.errorMessage("Please fill all blank fields");
         }
+
     }
     private String hashPassword(String password) {
         try {
@@ -271,10 +315,10 @@ public class Teacher implements Initializable {
 
             }
             if(tempID == 0){
-                tempID += 1;
-                doctorID += tempID;
+                ++tempID;
+                doctorID = doctorID + tempID;
             }else{
-                doctorID += (tempID+1);
+                doctorID = doctorID + (tempID + 1);
             }
             register_teacherId.setText(doctorID);
             register_teacherId.setDisable(true);

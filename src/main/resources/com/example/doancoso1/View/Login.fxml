@@ -7,12 +7,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="392.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.doancoso1.Controller.Login">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="392.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.doancoso1.Controller.Login">
    <children>
       <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -29,13 +30,18 @@
                   <PasswordField fx:id="login_password" layoutX="82.0" layoutY="278.0" prefHeight="30.0" prefWidth="238.0" promptText="password" />
                   <TextField fx:id="login_showpassword" layoutX="82.0" layoutY="278.0" prefHeight="30.0" prefWidth="238.0" promptText="password" visible="false" />
                   <CheckBox fx:id="login_checkbox" layoutX="82.0" layoutY="325.0" mnemonicParsing="false" onAction="#loginShowPassword" text="Show password" />
-                  <Button fx:id="login_Btn" layoutX="81.0" layoutY="386.0" mnemonicParsing="false" onAction="#loginAccount" prefHeight="52.0" prefWidth="238.0" text="Login">
+                  <Button fx:id="login_Btn" layoutX="81.0" layoutY="386.0" mnemonicParsing="false" onAction="#loginAccount" prefHeight="52.0" prefWidth="238.0" style="-fx-background-color: #0d1069;" text="Login" textFill="WHITE">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="18.0" />
                      </font>
                   </Button>
                   <ComboBox fx:id="login_user" layoutX="99.0" layoutY="462.0" onAction="#switchPage" prefHeight="30.0" prefWidth="206.0" promptText="Select User" />
                   <Hyperlink fx:id="login_register" layoutX="100.0" layoutY="522.0" onAction="#switchForm" prefHeight="24.0" prefWidth="205.0" text="Have no account yet? Register here" />
+                  <ImageView fitHeight="94.0" fitWidth="87.0" layoutX="153.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/userlogin.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="register_form" layoutY="-6.0" prefHeight="598.0" prefWidth="402.0" visible="false">

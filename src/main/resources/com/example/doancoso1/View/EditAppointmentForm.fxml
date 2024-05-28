@@ -57,36 +57,36 @@
                         <ComboBox fx:id="editAppointment_status" layoutX="498.0" layoutY="310.0" prefHeight="25.0" prefWidth="123.0" promptText="Choose..." />
                         <Button fx:id="editApp_updateBtn" layoutX="309.0" layoutY="388.0" mnemonicParsing="false" onAction="#updateBtn" style="-fx-background-color: #124981;" text="Update" textFill="WHITE" />
                         <Button fx:id="editApp_cancelBtn" layoutX="398.0" layoutY="388.0" mnemonicParsing="false" onAction="#cancelBtn" style="-fx-background-color: #124981;" text="Cancel" textFill="WHITE" />
-                  <Label layoutX="389.0" layoutY="105.0" prefHeight="20.0" prefWidth="88.0" text="Description:">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="editAppointment_description" layoutX="498.0" layoutY="102.0" prefHeight="25.0" prefWidth="123.0" />
-                  <Label layoutX="389.0" layoutY="145.0" prefHeight="20.0" prefWidth="98.0" text="Diagnoisis:">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="editAppointment_diagnoisis" layoutX="498.0" layoutY="143.0" prefHeight="25.0" prefWidth="123.0" />
-                  <Label layoutX="389.0" layoutY="185.0" prefHeight="20.0" prefWidth="88.0" text="Treatment: ">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="editAppointment_treatment" layoutX="498.0" layoutY="183.0" prefHeight="25.0" prefWidth="123.0" />
-                  <Label layoutX="408.0" layoutY="227.0" prefHeight="20.0" prefWidth="55.0" text="Teacher:">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="editAppointment_teacher" layoutX="498.0" layoutY="224.0" onAction="#teacherList" prefHeight="25.0" prefWidth="123.0" promptText="Choose..." />
-                  <Label layoutX="388.0" layoutY="273.0" prefHeight="20.0" prefWidth="75.0" text="Specialized:">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="editAppointment_specialized" layoutX="498.0" layoutY="272.0" prefHeight="25.0" prefWidth="123.0" promptText="Choose..." />
+                        <Label layoutX="389.0" layoutY="105.0" prefHeight="20.0" prefWidth="88.0" text="Description:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="editAppointment_description" layoutX="498.0" layoutY="102.0" prefHeight="25.0" prefWidth="123.0" />
+                        <Label layoutX="389.0" layoutY="145.0" prefHeight="20.0" prefWidth="98.0" text="Diagnoisis:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="editAppointment_diagnoisis" layoutX="498.0" layoutY="143.0" prefHeight="25.0" prefWidth="123.0" />
+                        <Label layoutX="389.0" layoutY="185.0" prefHeight="20.0" prefWidth="88.0" text="Treatment: ">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="editAppointment_treatment" layoutX="498.0" layoutY="183.0" prefHeight="25.0" prefWidth="123.0" />
+                        <Label layoutX="408.0" layoutY="227.0" prefHeight="20.0" prefWidth="55.0" text="Teacher:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="editAppointment_teacher" layoutX="498.0" layoutY="224.0" onAction="#teacherList" prefHeight="25.0" prefWidth="123.0" promptText="Choose..." />
+                        <Label layoutX="388.0" layoutY="273.0" prefHeight="20.0" prefWidth="75.0" text="Specialized:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="editAppointment_specialized" layoutX="498.0" layoutY="272.0" prefHeight="25.0" prefWidth="123.0" promptText="Choose..." />
                     </children>
                 </AnchorPane>
             </children>

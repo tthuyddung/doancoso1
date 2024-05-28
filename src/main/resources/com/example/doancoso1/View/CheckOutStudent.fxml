@@ -40,7 +40,7 @@
                         <Font size="18.0" />
                     </font>
                 </Button>
-            <Button fx:id="checkout_countBtn" layoutX="326.0" layoutY="235.0" mnemonicParsing="false" onAction="#countBtn" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: #0d1069;" text="Count" textFill="WHITE" />
+                <Button fx:id="checkout_countBtn" layoutX="326.0" layoutY="235.0" mnemonicParsing="false" onAction="#countBtn" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: #0d1069;" text="Count" textFill="WHITE" />
             </children>
         </AnchorPane>
     </children>

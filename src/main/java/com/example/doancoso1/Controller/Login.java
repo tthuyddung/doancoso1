@@ -83,9 +83,11 @@ public class Login implements Initializable {
 
     private AlertMessage alert = new AlertMessage();
 
+    public Login(){
+    }
     public void loginAccount(){
         if(login_username.getText().isEmpty()
-        || login_password.getText().isEmpty()){
+                || login_password.getText().isEmpty()){
             alert.errorMessage("Incorrect Username/Password");
         }else{
             String sql = "SELECT * FROM admin WHERE username = ? AND password = ?";
@@ -144,64 +146,109 @@ public class Login implements Initializable {
         }
     }
 
-    public void registerAccount(){
-        if(register_email.getText().isEmpty()
-                || register_username.getText().isEmpty()
-                || register_password.getText().isEmpty()){
-            alert.errorMessage("Please fill all blank fields");
-        }else{
-            String checkUsername = "SELECT * FROM admin WHERE username = '"
-                    + register_username.getText() + "'";
+//    public void registerAccount(){
+//        if(register_email.getText().isEmpty()
+//                || register_username.getText().isEmpty()
+//                || register_password.getText().isEmpty()){
+//            alert.errorMessage("Please fill all blank fields");
+//        }else{
+//            String checkUsername = "SELECT * FROM admin WHERE username = '"
+//                    + register_username.getText() + "'";
+//
+//            connect = Database.connectDb();
+//
+//            try{
+//                if(!register_checkbox.isVisible()){
+//                    if(!register_showpassword.getText().equals(register_password.getText())){
+//                        register_showpassword.setText(register_password.getText());
+//                    }else{
+//                        if(!register_showpassword.getText().equals(register_password.getText())){
+//                            register_password.setText(register_showpassword.getText());
+//                        }
+//                    }
+//                }
+//                prepare = connect.prepareStatement(checkUsername);
+//                result = prepare.executeQuery();
+//
+//                if(result.next()) {
+//                    alert.errorMessage(register_username.getText() + " is already exist");
+//                }else if(register_password.getText().length() < 8){
+//                    alert.errorMessage("Inavlid password, at least 8 characters needed");
+//                }else{
+//
+//                    String password = register_password.getText();
+//                    String hashedPassword = hashPassword(password);
+//
+//                    String insertData = "INSERT INTO admin (email, username, password, date) VALUES (?,?,?,?)";
+//
+//                    Date date = new Date();
+//                    java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+//
+//                    prepare = connect.prepareStatement(insertData);
+//                    prepare.setString(1, register_email.getText());
+//                    prepare.setString(2, register_username.getText());
+//                    prepare.setString(3, hashedPassword);
+//                    prepare.setString(4, String.valueOf(sqlDate));
+//
+//                    prepare.executeUpdate();
+//
+//                    alert.successMessage("Registered Successfully");
+//
+//                    registerClear();
+//
+//                    login_form.setVisible(true);
+//                    register_form.setVisible(false);
+//                }
+//            }catch(Exception e){
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 
+    public void registerAccount() {
+        if (!register_email.getText().isEmpty() && !register_username.getText().isEmpty() && !register_password.getText().isEmpty()) {
+            String checkUsername = "SELECT * FROM admin WHERE username = '" + register_username.getText() + "'";
             connect = Database.connectDb();
 
-            try{
-                if(!register_checkbox.isVisible()){
-                    if(!register_showpassword.getText().equals(register_password.getText())){
+            try {
+                if (!register_showpassword.isVisible()) {
+                    if (!register_showpassword.getText().equals(register_password.getText())) {
                         register_showpassword.setText(register_password.getText());
-                    }else{
-                        if(!register_showpassword.getText().equals(register_password.getText())){
-                            register_password.setText(register_showpassword.getText());
-                        }
                     }
+                } else if (!register_showpassword.getText().equals(register_password.getText())) {
+                    register_password.setText(register_showpassword.getText());
                 }
+
                 prepare = connect.prepareStatement(checkUsername);
                 result = prepare.executeQuery();
-
-                if(result.next()) {
-                    alert.errorMessage(register_username.getText() + " is already exist");
-                }else if(register_password.getText().length() < 8){
-                    alert.errorMessage("Inavlid password, at least 8 characters needed");
-                }else{
-
-                    String password = register_password.getText();
-                    String hashedPassword = hashPassword(password);
-
-                    String insertData = "INSERT INTO admin (email, username, password, date) VALUES (?,?,?,?)";
-
+                if (result.next()) {
+                    alert.errorMessage(register_username.getText() + " is already exist!");
+                } else if (register_password.getText().length() < 8) {
+                    alert.errorMessage("Invalid Password, at least 8 characters needed");
+                } else {
+                    String insertData = "INSERT INTO admin (email, username, password, date) VALUES(?,?,?,?)";
                     Date date = new Date();
                     java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-
                     prepare = connect.prepareStatement(insertData);
                     prepare.setString(1, register_email.getText());
                     prepare.setString(2, register_username.getText());
-                    prepare.setString(3, hashedPassword);
+                    prepare.setString(3, register_password.getText());
                     prepare.setString(4, String.valueOf(sqlDate));
-
                     prepare.executeUpdate();
-
-                    alert.successMessage("Registered Successfully");
-
+                    alert.successMessage("Registered Successfully!");
                     registerClear();
-
                     login_form.setVisible(true);
                     register_form.setVisible(false);
                 }
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
+        } else {
+            alert.errorMessage("Please fill all blank fields");
         }
+
     }
+
     private String hashPassword(String password) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");

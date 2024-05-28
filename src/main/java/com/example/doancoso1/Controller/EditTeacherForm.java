@@ -128,14 +128,14 @@ public class EditTeacherForm implements Initializable {
         connect = Database.connectDb();
 
         if(editTeacher_id.getText().isEmpty()
-        || editTeacher_fullname.getText().isEmpty()
-        || editTeacher_email.getText().isEmpty()
-        || editTeacher_password.getText().isEmpty()
-        || editTeacher_specialized.getSelectionModel().getSelectedItem()==null
-        || editTeacher_gender.getSelectionModel().getSelectedItem()==null
-        || editTeacher_mobileNumber.getText().isEmpty()
-        || editTeacher_address.getText().isEmpty()
-        || editTeacher_status.getSelectionModel().getSelectedItem()==null) {
+                || editTeacher_fullname.getText().isEmpty()
+                || editTeacher_email.getText().isEmpty()
+                || editTeacher_password.getText().isEmpty()
+                || editTeacher_specialized.getSelectionModel().getSelectedItem()==null
+                || editTeacher_gender.getSelectionModel().getSelectedItem()==null
+                || editTeacher_mobileNumber.getText().isEmpty()
+                || editTeacher_address.getText().isEmpty()
+                || editTeacher_status.getSelectionModel().getSelectedItem()==null) {
             alert.errorMessage("Please fill all blank fields ");
         }else{
             Date date = new Date();
@@ -155,8 +155,8 @@ public class EditTeacherForm implements Initializable {
                         + "WHERE teacher_id = '" + editTeacher_id.getText() + "'";
                 try {
                     if (alert.confirmationMessage("Are you sure you want to update Teacher ID: " + editTeacher_id.getText() + "?")) {
-                            prepare = connect.prepareStatement(updateData);
-                            prepare.executeUpdate();
+                        prepare = connect.prepareStatement(updateData);
+                        prepare.executeUpdate();
                         alert.successMessage("Updated Successfully!");
                     }else{
                         alert.errorMessage("Cancelled");
@@ -193,8 +193,8 @@ public class EditTeacherForm implements Initializable {
                                 + editTeacher_address.getText() + "', status='"
                                 + editTeacher_status.getSelectionModel().getSelectedItem() + "' "
                                 + "WHERE teacher_id = '" + editTeacher_id.getText() + "'";
-                    prepare = connect.prepareStatement(updateData);
-                    prepare.executeUpdate();
+                        prepare = connect.prepareStatement(updateData);
+                        prepare.executeUpdate();
 
                     } else {
                         alert.errorMessage("Cancelled");

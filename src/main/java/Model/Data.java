@@ -1,11 +1,12 @@
 package Model;
 
 public class Data {
-    public static  String admin_username;
     public static Integer admin_id;
+    public static  String admin_username;
+    public static String path;
     public static String teacher_id;
     public static String teacher_name;
-    public static String path;
+    public static Integer student_id;
 
     public static String[] gender = {"Male", "Female", "Others"};
 
@@ -49,4 +50,7 @@ public class Data {
     public static String temp_appTeacher;
     public static String temp_appSpecialized;
     public static String temp_appStatus;
+
+    public Data() {
+    }
 }

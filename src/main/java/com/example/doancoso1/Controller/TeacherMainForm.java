@@ -413,52 +413,52 @@ public class TeacherMainForm implements Initializable {
 
         dashboard_tableview.setItems(dashboardGetData);
     }
-//    public void dashboardNOP(){
-//        dashboard_char_SD.getData().clear();
-//
-//        String sql = "SELECT date, COUNT(id) FROM student WHERE teacher = '"
-//                + Data.teacher_id + "' GROUP BY TIMESTAMP(date) ASC LIMIT 8";
-//
-//
-//        connect = Database.connectDb();
-//
-//        try{
-//            XYChart.Series chart = new XYChart.Series<>();
-//            prepare = connect.prepareStatement(sql);
-//            result = prepare.executeQuery();
-//
-//            while(result.next()){
-//                chart.getData().add(new XYChart.Data<>(result.getString(1), result.getInt(2)));
-//            }
-//
-//            dashboard_char_SD.getData().add(chart);
-//        }catch(Exception e){
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    public void dashboardNOA(){
-//        dashboard_char_TD.getData().clear();
-//
-//        String sql ="SELECT date, COUNT(id) FROM appointment WHERE teacher = '"
-//                                    + Data.teacher_id + "' GROUP BY TIMESTAMP(date) ASC LIMIT 7";
-//
-//        connect = Database.connectDb();
-//
-//        try{
-//            XYChart.Series chart = new XYChart.Series<>();
-//            prepare = connect.prepareStatement(sql);
-//            result = prepare.executeQuery();
-//
-//            while(result.next()){
-//                chart.getData().add(new XYChart.Data<>(result.getString(1), result.getInt(2)));
-//            }
-//
-//            dashboard_char_TD.getData().add(chart);
-//        }catch(Exception e){
-//            e.printStackTrace();
-//        }
-//    }
+    public void dashboardNOP(){
+        dashboard_char_SD.getData().clear();
+
+        String sql = "SELECT date, COUNT(id) FROM student WHERE teacher = '"
+                + Data.teacher_id + "' GROUP BY TIMESTAMP(date) ASC LIMIT 8";
+
+
+        connect = Database.connectDb();
+
+        try{
+            XYChart.Series chart = new XYChart.Series<>();
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+
+            while(result.next()){
+                chart.getData().add(new XYChart.Data<>(result.getString(1), result.getInt(2)));
+            }
+
+            dashboard_char_SD.getData().add(chart);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void dashboardNOA(){
+        dashboard_char_TD.getData().clear();
+
+        String sql ="SELECT date, COUNT(id) FROM appointment WHERE teacher = '"
+                                    + Data.teacher_id + "' GROUP BY TIMESTAMP(date) ASC LIMIT 7";
+
+        connect = Database.connectDb();
+
+        try{
+            XYChart.Series chart = new XYChart.Series<>();
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+
+            while(result.next()){
+                chart.getData().add(new XYChart.Data<>(result.getString(1), result.getInt(2)));
+            }
+
+            dashboard_char_TD.getData().add(chart);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 
     public void studentConfirmBtn(){
         if(student_ID.getText().isEmpty()

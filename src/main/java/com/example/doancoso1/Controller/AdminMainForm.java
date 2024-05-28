@@ -523,7 +523,6 @@ public class AdminMainForm implements Initializable {
     public void teacherDisplayData(){
         teacherListData = teacherGetData();
 
-//        System.out.println("kiểm tra id null: "+ teacher_col_ID);
         teacher_col_ID.setCellValueFactory(new PropertyValueFactory<>("teacherID"));
         teacher_col_name.setCellValueFactory(new PropertyValueFactory<>("fullname"));
         teacher_col_gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
@@ -663,10 +662,6 @@ public class AdminMainForm implements Initializable {
             StudentData sData;
 
             while(result.next()){
-//                StudentData(Integer id, Integer studentID, String password, String fullName,
-//                        Long mobileNumber, String address, String image, String description,
-//                        String diagnosis, String treatment, String teacher, String specialized,
-//                        Date date, Date dateModify, Date dateDelete, String status)
                 sData = new StudentData(result.getInt("id"), result.getInt("student_id")
                         , result.getString("password"), result.getString("full_name")
                         , result.getLong("mobile_number"), result.getString("gender")
@@ -825,16 +820,14 @@ public class AdminMainForm implements Initializable {
 
             AppointmentData aData;
             if(result.next()){
-//               AppointmentData(Integer id, Integer appointmentID, String name,String gender, String teacherID, String specialized, Long mobileNumber,
-//                           String description,String diagnosis, String treatment, String address, Date date, Date dateModify, Date DateDelete, String status, Date schedule)
                 aData = new AppointmentData(result.getInt("id"), result.getInt("appointment_id")
-                            , result.getString("name"), result.getString("gender")
-                            , result.getString("teacher"), result.getString("specialized")
-                            , result.getLong("mobile_number"), result.getString("description")
-                            , result.getString("diagnosis"), result.getString("treatment")
-                            , result.getString("address"), result.getDate("date")
-                            , result.getDate("date_modify"), result.getDate("date_delete")
-                            , result.getString("status"), result.getDate("schedule"));
+                        , result.getString("name"), result.getString("gender")
+                        , result.getString("teacher"), result.getString("specialized")
+                        , result.getLong("mobile_number"), result.getString("description")
+                        , result.getString("diagnosis"), result.getString("treatment")
+                        , result.getString("address"), result.getDate("date")
+                        , result.getDate("date_modify"), result.getDate("date_delete")
+                        , result.getString("status"), result.getDate("schedule"));
                 listData.add(aData);
 
             }
@@ -915,7 +908,7 @@ public class AdminMainForm implements Initializable {
 
 
 
-                                 Parent root = FXMLLoader.load(getClass().getResource("/com/example/doancoso1/View/EditAppointmentForm.fxml"));
+                                Parent root = FXMLLoader.load(getClass().getResource("/com/example/doancoso1/View/EditAppointmentForm.fxml"));
                                 Stage stage = new Stage();
 
                                 stage.setScene(new Scene(root));
@@ -1288,10 +1281,6 @@ public class AdminMainForm implements Initializable {
             result = prepare.executeQuery();
 
             if(result.next()){
-//mi muốn hắn có giá trị gì muốn gì ba t đang xử lí cái button checkout thì tụ nhiên hắn lỗi cái ni mà trong khi cái ni in ra đúng ròi
-// mi settext thì phải muốn hắn gắn gì chứ
-
-//                System.out.println("kiểm tra nav_adminID : "+ nav_adminID);
                 nav_adminID.setText(result.getString("admin_id"));
                 String tempUsername = result.getString("username");
                 tempUsername = tempUsername.substring(0, 1).toUpperCase() + tempUsername.substring(1);
@@ -1372,14 +1361,7 @@ public class AdminMainForm implements Initializable {
         profileDisplayInfo();
         profileDisplayImage();
 
-
-
-
         paymentDisplayData();
-//        paymentCheckOutBtn();
-
-
-
 
     }
 }

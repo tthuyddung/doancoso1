@@ -10,30 +10,30 @@
 
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="921.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.doancoso1.Controller.RecordPageForm">
-   <children>
-      <AnchorPane fx:id="record_form" prefHeight="200.0" prefWidth="200.0">
-         <children>
-            <Label layoutX="14.0" layoutY="14.0" prefHeight="32.0" prefWidth="95.0" text="Student">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-            </Label>
-            <TextField fx:id="record_search" layoutX="535.0" layoutY="15.0" prefHeight="32.0" prefWidth="367.0" promptText="Search" />
-            <TableView fx:id="record_tableview" layoutX="26.0" layoutY="76.0" prefHeight="462.0" prefWidth="867.0">
-              <columns>
-                <TableColumn fx:id="record_col_ID" prefWidth="89.60000991821289" text="Student ID" />
-                <TableColumn fx:id="record_col_name" prefWidth="89.60000610351562" text="Name" />
-                  <TableColumn fx:id="record_col_gender" prefWidth="75.99998474121094" text="Gender" />
-                  <TableColumn fx:id="record_col_mobile" prefWidth="107.20001220703125" text="Mobile Number" />
-                  <TableColumn fx:id="record_col_address" prefWidth="84.00006103515625" text="Address" />
-                  <TableColumn fx:id="record_col_dateCre" prefWidth="101.60003662109375" text="Date Created" />
-                  <TableColumn fx:id="record_col_dateModi" prefWidth="101.5999755859375" text="Date Modified" />
-                  <TableColumn fx:id="record_col_dateDele" prefWidth="106.4000244140625" text="Date Deleted" />
-                  <TableColumn fx:id="record_col_action" prefWidth="120.800048828125" text="Action" />
-              </columns>
-            </TableView>
+    <children>
+        <AnchorPane fx:id="record_form" prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <Label layoutX="14.0" layoutY="14.0" prefHeight="32.0" prefWidth="95.0" text="Student">
+                    <font>
+                        <Font name="System Bold" size="22.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="record_search" layoutX="535.0" layoutY="15.0" prefHeight="32.0" prefWidth="367.0" promptText="Search" />
+                <TableView fx:id="record_tableview" layoutX="26.0" layoutY="76.0" prefHeight="462.0" prefWidth="867.0">
+                    <columns>
+                        <TableColumn fx:id="record_col_ID" prefWidth="89.60000991821289" text="Student ID" />
+                        <TableColumn fx:id="record_col_name" prefWidth="89.60000610351562" text="Name" />
+                        <TableColumn fx:id="record_col_gender" prefWidth="75.99998474121094" text="Gender" />
+                        <TableColumn fx:id="record_col_mobile" prefWidth="107.20001220703125" text="Mobile Number" />
+                        <TableColumn fx:id="record_col_address" prefWidth="84.00006103515625" text="Address" />
+                        <TableColumn fx:id="record_col_dateCre" prefWidth="101.60003662109375" text="Date Created" />
+                        <TableColumn fx:id="record_col_dateModi" prefWidth="101.5999755859375" text="Date Modified" />
+                        <TableColumn fx:id="record_col_dateDele" prefWidth="106.4000244140625" text="Date Deleted" />
+                        <TableColumn fx:id="record_col_action" prefWidth="120.800048828125" text="Action" />
+                    </columns>
+                </TableView>
 
-         </children>
-      </AnchorPane>
-   </children>
+            </children>
+        </AnchorPane>
+    </children>
 </StackPane>

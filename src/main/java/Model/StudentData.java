@@ -72,6 +72,16 @@ public class StudentData {
         this.image = image;
         this.date = date;
     }
+    public StudentData(Integer id, Integer studentID, String description, String diagnosis, String treatment, java.sql.Date date) {
+        this.id = id;
+        this.studentID = studentID;
+        this.description = description;
+        this.diagnosis = diagnosis;
+        this.treatment = treatment;
+        this.date = date;
+    }
+
+
     public Integer getId(){
         return id;
     }

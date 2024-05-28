@@ -152,7 +152,7 @@ public class EditAppointmentForm implements Initializable {
             }
 
 
-            }
+        }
 
         displayAppoimentData();
     }
@@ -198,7 +198,7 @@ public class EditAppointmentForm implements Initializable {
         }
     }
 
-//    public void specializedList(){
+    //    public void specializedList(){
 //        String sql = "SELECT * FROM teacher WHERE delete_date IS NULL AND teacher_id = '"
 //        + editAppointment_teacher.getSelectionModel().getSelectedItem() +"'";
 //
@@ -217,16 +217,16 @@ public class EditAppointmentForm implements Initializable {
 //            e.printStackTrace();
 //        }
 //    }
-public void specializedList(){
-    List<String> genderL = new ArrayList<>();
+    public void specializedList(){
+        List<String> genderL = new ArrayList<>();
 
-    for(String data : Data.specialization){
-        genderL.add(data);
+        for(String data : Data.specialization){
+            genderL.add(data);
+        }
+
+        ObservableList listData = FXCollections.observableList(genderL);
+        editAppointment_specialized.setItems(listData);
     }
-
-    ObservableList listData = FXCollections.observableList(genderL);
-    editAppointment_specialized.setItems(listData);
-}
 
     public void genderList(){
         List<String> genderL = new ArrayList<>();

@@ -57,11 +57,11 @@ public class EditStudentForm implements Initializable {
                 || edit_gender.getSelectionModel().getSelectedItem() == null
                 || edit_contact.getText().isEmpty()
                 || edit_address.getText().isEmpty()
-        || edit_status.getSelectionModel().getSelectedItem() == null){
+                || edit_status.getSelectionModel().getSelectedItem() == null){
             alert.errorMessage("Please fill all the fields");
         }else{
             String updateData = "UPDATE student SET full_name = ?, gender = ?, mobile_number = ?, address = ?" +
-                      ", status = ?, date_modify = ? "
+                    ", status = ?, date_modify = ? "
                     + "WHERE student_id = '" + edit_ID.getText() + "'";
 
             connect = Database.connectDb();
