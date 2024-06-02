@@ -52,7 +52,7 @@
             </HBox>
             <HBox layoutX="10.0" layoutY="159.0" prefHeight="35.0" prefWidth="256.0">
                <children>
-                  <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="88.0" text="Specialization :">
+                  <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="81.0" text="Subject:">
                      <HBox.margin>
                         <Insets bottom="10.0" left="20.0" top="10.0" />
                      </HBox.margin>

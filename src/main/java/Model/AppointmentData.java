@@ -9,9 +9,9 @@ public class AppointmentData {
     private Integer studentID;
     private String name;
     private String gender;
-    private String description;
-    private String diagnosis;
-    private String treatment;
+    private String subject;
+    private String evaluate;
+    private String lop;
     private Long mobileNumber;
     private String address;
     private Date date;
@@ -23,7 +23,7 @@ public class AppointmentData {
     private Date schedule;
 
     public AppointmentData(Integer id, Integer appointmentID, String name,String gender, String teacherID, String specialized, Long mobileNumber,
-                           String description,String diagnosis, String treatment, String address, Date date, Date dateModify, Date DateDelete, String status, Date schedule){
+                           String subject,String evaluate, String lop, String address, Date date, Date dateModify, Date DateDelete, String status, Date schedule){
         this.id=id;
         this.appointmentID = appointmentID;
         this.name = name;
@@ -31,9 +31,9 @@ public class AppointmentData {
         this.teacherID=teacherID;
         this.specialized=specialized;
         this.mobileNumber = mobileNumber;
-        this.description = description;
-        this.diagnosis = diagnosis;
-        this.treatment = treatment;
+        this.subject = subject;
+        this.evaluate = evaluate;
+        this.lop = lop;
         this.address = address;
         this.date = date;
         this.dateModify = dateModify;
@@ -43,14 +43,14 @@ public class AppointmentData {
     }
 
     public AppointmentData( Integer appointmentID, String name,String gender, Long mobileNumber,
-                            String description,String diagnosis, String treatment, String address, Date date, Date dateModify, Date DateDelete, String status, Date schedule){
+                            String subject,String evaluate, String lop, String address, Date date, Date dateModify, Date DateDelete, String status, Date schedule){
         this.appointmentID = appointmentID;
         this.name = name;
         this.gender = gender;
         this.mobileNumber = mobileNumber;
-        this.description = description;
-        this.diagnosis = diagnosis;
-        this.treatment = treatment;
+        this.subject = subject;
+        this.evaluate = evaluate;
+        this.lop = lop;
         this.address = address;
         this.date = date;
         this.dateModify = dateModify;
@@ -59,19 +59,19 @@ public class AppointmentData {
         this.schedule = schedule;
     }
     public AppointmentData(Integer appointmentID, String name,
-                           String description, Date date, String status){
+                           String subject, Date date, String status){
         this.appointmentID = appointmentID;
         this.name = name;
-        this.description = description;
+        this.subject = subject;
         this.date = date;
         this.status = status;
     }
 
-    public AppointmentData(Integer appointmentID, String description, String diagnosis, String treatment, String teacherID, java.sql.Date schedule) {
+    public AppointmentData(Integer appointmentID, String subject, String evaluate, String lop, String teacherID, java.sql.Date schedule) {
         this.appointmentID = appointmentID;
-        this.description = description;
-        this.diagnosis = diagnosis;
-        this.treatment = treatment;
+        this.subject = subject;
+        this.evaluate = evaluate;
+        this.lop = lop;
         this.teacherID = teacherID;
         this.schedule = schedule;
     }
@@ -90,14 +90,14 @@ public class AppointmentData {
     public Long getMobileNumber(){
         return mobileNumber;
     }
-    public String getDescription(){
-        return description;
+    public String getSubject(){
+        return subject;
     }
-    public String getDiagnosis(){
-        return diagnosis;
+    public String getEvaluate(){
+        return evaluate;
     }
-    public String getTreatment(){
-        return treatment;
+    public String getLop(){
+        return lop;
     }
     public String getAddress(){
         return address;

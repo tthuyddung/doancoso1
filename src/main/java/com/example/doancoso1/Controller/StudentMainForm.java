@@ -42,6 +42,7 @@ import Model.TeacherData;
 import Model.StudentData;
 import Model.AppointmentData;
 import javafx.scene.image.Image;
+import javafx.scene.control.Label;
 
 
 public class StudentMainForm implements Initializable {
@@ -256,8 +257,8 @@ public class StudentMainForm implements Initializable {
                 StudentData pData = new StudentData(
                         result.getInt("id"),
                         result.getInt("student_id"),
-                        result.getString("description"),
-                        result.getString("diagnosis"),
+                        result.getString("subject"),
+                        result.getString("evaluate"),
                         result.getString("treatment"),
                         result.getDate("date"));
 
@@ -272,8 +273,8 @@ public class StudentMainForm implements Initializable {
     private ObservableList<StudentData> homeStudentListData;
     public void homeStudentDisplayData() {
         homeStudentListData = homeStudentGetData();
-        home_student_col_description.setCellValueFactory(new PropertyValueFactory("description"));
-        home_student_col_diagnosis.setCellValueFactory(new PropertyValueFactory("diagnosis"));
+        home_student_col_description.setCellValueFactory(new PropertyValueFactory("subject"));
+        home_student_col_diagnosis.setCellValueFactory(new PropertyValueFactory("evaluate"));
         home_student_col_treatment.setCellValueFactory(new PropertyValueFactory("treatment"));
         home_student_col_datein.setCellValueFactory(new PropertyValueFactory("date"));
         home_student_tableView.setItems(homeStudentListData);
@@ -289,7 +290,7 @@ public class StudentMainForm implements Initializable {
             result = prepare.executeQuery();
 
             while(result.next()) {
-                AppointmentData aData = new AppointmentData(result.getInt("appointment_id"), result.getString("description"), result.getString("diagnosis"), result.getString("treatment"), result.getString("teacher"), result.getDate("schedule"));
+                AppointmentData aData = new AppointmentData(result.getInt("appointment_id"), result.getString("subject"), result.getString("evaluate"), result.getString("treatment"), result.getString("teacher"), result.getDate("schedule"));
                 listData.add(aData);
             }
         } catch (Exception e) {
@@ -301,11 +302,11 @@ public class StudentMainForm implements Initializable {
 
     private ObservableList<AppointmentData> homeAppointmentListData;
     public void homeAppointmentDisplayData() {
-//        AppointmentData(Integer appointmentID, String description, String diagnosis, String treatment, String teacherID, java.sql.Date schedule)
+//        AppointmentData(Integer appointmentID, String subject, String evaluate, String treatment, String teacherID, java.sql.Date schedule)
         homeAppointmentListData = homeAppointmentGetData();
         home_appointment_col_appID.setCellValueFactory(new PropertyValueFactory("appointmentID"));
-        home_appointment_col_description.setCellValueFactory(new PropertyValueFactory("description"));
-        home_appointment_col_diagnosis.setCellValueFactory(new PropertyValueFactory("diagnosis"));
+        home_appointment_col_description.setCellValueFactory(new PropertyValueFactory("subject"));
+        home_appointment_col_diagnosis.setCellValueFactory(new PropertyValueFactory("evaluate"));
         home_appointment_col_treatment.setCellValueFactory(new PropertyValueFactory("treatment"));
         home_appointment_col_teacher.setCellValueFactory(new PropertyValueFactory("teacherID"));
         home_appointment_col_schedule.setCellValueFactory(new PropertyValueFactory("schedule"));
@@ -443,6 +444,37 @@ public class StudentMainForm implements Initializable {
 
     }
 
+//    public void appointmentConfirmBtn(){
+//        if(appointment_d_description.getText().isEmpty()
+//            || appointment_d_schedule.getValue() == null
+//            || appointment_d_teacher.getSelectionModel().isEmpty()){
+//        alert.errorMessage("Please fill all blank fields");
+//        }else{
+//            appointment_ad_description.setText(appointment_d_description.getText());
+//            appointment_ad_name.setText((String)appointment_d_teacher.getSelectionModel().getSelectedItem());
+//
+//            String sql = "SELECT * FROM teacher WHERE teacher_id = '"
+//                    + appointment_d_teacher.getSelectionModel().getSelectedItem()+"'";
+//            connect =Database.connectDb();
+//
+//            String tempSpecialized ="";
+//            try{
+//                prepare = connect.prepareStatement(sql);
+//                result = prepare.executeQuery();
+//                if(result.next()){
+//                    tempSpecialized = result.getString("specialized");
+//
+//                }
+//            }catch(Exception e){
+//                e.printStackTrace();
+//            }
+//
+//            appointment_ad_specialization.setText(tempSpecialized);
+//            appointment_ad_schedule.setText(String.valueOf(appointment_d_schedule.getValue()));
+//
+//        }
+//    }
+
     public void appointmentTeacher() {
         String sql = "SELECT * FROM teacher WHERE delete_date IS NULL";
         connect = Database.connectDb();
@@ -488,7 +520,7 @@ public class StudentMainForm implements Initializable {
                 e.printStackTrace();
             }
 
-            String insertData = "INSERT INTO appointment (appointment_id, student_id, name, gender, description, mobile_number, address, date, teacher, specialized, schedule, status) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+            String insertData = "INSERT INTO appointment (appointment_id, student_id, name, gender, subject, mobile_number, address, date, teacher, specialized, schedule, status) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
             Date date = new Date();
             new java.sql.Date(date.getTime());
 

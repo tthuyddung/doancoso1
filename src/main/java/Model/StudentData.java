@@ -10,9 +10,9 @@ public class StudentData {
     private Long mobileNumber;
     private String address;
     private String image;
-    private String description;
-    private String diagnosis;
-    private String treatment;
+    private String subject;
+    private String evaluate;
+    private String lop;
     private String teacher;
     private String specialized;
     private String gender;
@@ -22,8 +22,8 @@ public class StudentData {
     private String status;
 
     public StudentData(Integer id, Integer studentID, String password, String fullName,
-                       Long mobileNumber, String gender, String address, String image, String description,
-                       String diagnosis, String treatment, String teacher, String specialized,
+                       Long mobileNumber, String gender, String address, String image, String subject,
+                       String evaluate, String lop, String teacher, String specialized,
                        Date date, Date dateModify, Date dateDelete, String status){
         this.id = id;
         this.studentID = studentID;
@@ -33,9 +33,9 @@ public class StudentData {
         this.gender = gender;
         this.address = address;
         this.image = image;
-        this.description = description;
-        this.diagnosis = diagnosis;
-        this.treatment = treatment;
+        this.subject = subject;
+        this.evaluate = evaluate;
+        this.lop = lop;
         this.teacher = teacher;
         this.specialized = specialized;
         this.date = date;
@@ -59,25 +59,25 @@ public class StudentData {
     }
 
     public StudentData(Integer id, Integer studentID, String fullName, String gender
-            , String description, String diagnosis, String treatment
+            , String subject, String evaluate, String lop
             , String teacher, String image, Date date){
         this.id = id;
         this.studentID = studentID;
         this.fullName = fullName;
         this.gender = gender;
-        this.description = description;
-        this.diagnosis = diagnosis;
-        this.treatment = treatment;
+        this.subject = subject;
+        this.evaluate = evaluate;
+        this.lop = lop;
         this.teacher = teacher;
         this.image = image;
         this.date = date;
     }
-    public StudentData(Integer id, Integer studentID, String description, String diagnosis, String treatment, java.sql.Date date) {
+    public StudentData(Integer id, Integer studentID, String subject, String evaluate, String lop, java.sql.Date date) {
         this.id = id;
         this.studentID = studentID;
-        this.description = description;
-        this.diagnosis = diagnosis;
-        this.treatment = treatment;
+        this.subject = subject;
+        this.evaluate = evaluate;
+        this.lop = lop;
         this.date = date;
     }
 
@@ -106,14 +106,14 @@ public class StudentData {
     public String getImage(){
         return image;
     }
-    public String getDescription(){
-        return description;
+    public String getSubject(){
+        return subject;
     }
-    public String getDiagnosis(){
-        return diagnosis;
+    public String getEvaluate(){
+        return evaluate;
     }
-    public String getTreatment(){
-        return treatment;
+    public String getLop(){
+        return lop;
     }
     public String getTeacher(){
         return teacher;

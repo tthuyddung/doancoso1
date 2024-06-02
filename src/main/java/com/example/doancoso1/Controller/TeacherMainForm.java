@@ -390,7 +390,7 @@ public class TeacherMainForm implements Initializable {
             AppointmentData aData;
             while(result.next()){
                 aData = new AppointmentData(result.getInt("appointment_id")
-                , result.getString("name"), result.getString("description")
+                , result.getString("name"), result.getString("subject")
                 , result.getDate("date"), result.getString("status"));
 
                 listData.add(aData);
@@ -407,7 +407,7 @@ public class TeacherMainForm implements Initializable {
 
         dashboard_col_appointmentID.setCellValueFactory(new PropertyValueFactory<>("appointmentID"));
         dashboard_col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
-        dashboard_col_description.setCellValueFactory(new PropertyValueFactory<>("description"));
+        dashboard_col_description.setCellValueFactory(new PropertyValueFactory<>("subject"));
         dashboard_col_appDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         dashboard_col_status.setCellValueFactory(new PropertyValueFactory<>("status"));
 
@@ -616,7 +616,7 @@ public class TeacherMainForm implements Initializable {
                         getSpecialized = result.getString("specialized");
                     }
                     String insertData = "INSERT INTO appointment (appointment_id, name, gender"
-                            + ", description, diagnosis, treatment, mobile_number"
+                            + ", subject, evaluate, treatment, mobile_number"
                             + ", address, date, status, teacher, specialized, schedule) "
                             + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
@@ -666,7 +666,7 @@ public class TeacherMainForm implements Initializable {
             String updateData = "UPDATE appointment SET name = '"
                     + appointment_name.getText() + "', gender = '"
                     + appointment_gender.getSelectionModel().getSelectedItem() +"', mobile_number = '"
-                    + appointment_mobile.getText() + "', description = '"
+                    + appointment_mobile.getText() + "', subject = '"
                     + appointment_description.getText() + "', address = '"
                     + appointment_address.getText() + "', status = '"
                     + appointment_status.getSelectionModel().getSelectedItem() + "', schedule = '"
@@ -798,8 +798,8 @@ public class TeacherMainForm implements Initializable {
             while(result.next()){
                 appData= new AppointmentData(result.getInt("appointment_id"),
                         result.getString("name"), result.getString("gender"),
-                        result.getLong("mobile_number"), result.getString("description"),
-                        result.getString("diagnosis"), result.getString("treatment"),
+                        result.getLong("mobile_number"), result.getString("subject"),
+                        result.getString("evaluate"), result.getString("lop"),
                         result.getString("address"),
                         result.getDate("date"), result.getDate("date_modify"),
                         result.getDate("date_delete"), result.getString("status"), result.getDate("schedule"));
@@ -818,7 +818,7 @@ public class TeacherMainForm implements Initializable {
         appointment_col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
         appointment_col_gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
         appointment_col_contact.setCellValueFactory(new PropertyValueFactory<>("mobileNumber"));
-        appointment_col_description.setCellValueFactory(new PropertyValueFactory<>("description"));
+        appointment_col_description.setCellValueFactory(new PropertyValueFactory<>("subject"));
         appointment_col_date.setCellValueFactory(new PropertyValueFactory<>("date"));
         appointment_col_dateModify.setCellValueFactory(new PropertyValueFactory<>("dateModify"));
         appointment_col_dateDelete.setCellValueFactory(new PropertyValueFactory<>("dateDelete"));
@@ -837,9 +837,9 @@ public class TeacherMainForm implements Initializable {
         appointment_name.setText(appData.getName());
         appointment_gender.getSelectionModel().select(appData.getGender());
         appointment_mobile.setText("" + appData.getMobileNumber());
-        appointment_description.setText(appData.getDescription());
-        appointment_diagnosis.setText(appData.getDiagnosis());
-        appointment_treatment.setText(appData.getTreatment());
+        appointment_description.setText(appData.getSubject());
+        appointment_diagnosis.setText(appData.getEvaluate());
+        appointment_treatment.setText(appData.getLop());
         appointment_address.setText(appData.getAddress());
         appointment_status.getSelectionModel().select(appData.getStatus());
     }

@@ -192,7 +192,7 @@
                                              <columns>
                                                 <TableColumn fx:id="dashboard_col_teacherID" prefWidth="105.60004425048828" text="Teacher ID" />
                                                 <TableColumn fx:id="dashboard_col_name" prefWidth="128.79995727539062" text="Name" />
-                                                <TableColumn fx:id="dashboard_col_specialized" prefWidth="125.5999755859375" text="Specialized" />
+                                                <TableColumn fx:id="dashboard_col_specialized" prefWidth="125.5999755859375" text="Subject" />
                                                 <TableColumn fx:id="dashboard_col_status" prefWidth="134.4000244140625" text="Status" />
                                              </columns>
                                           </TableView>
@@ -242,7 +242,7 @@
                                           <TableColumn fx:id="teacher_col_gender" prefWidth="107.99992370605469" text="Gender" />
                                           <TableColumn fx:id="teacher_col_contact" prefWidth="136.79998779296875" text="Contact Number" />
                                           <TableColumn fx:id="teacher_col_email" prefWidth="133.5999755859375" text="Email Address" />
-                                          <TableColumn fx:id="teacher_col_specialized" prefWidth="125.5999755859375" text="Specialation" />
+                                          <TableColumn fx:id="teacher_col_specialized" prefWidth="125.5999755859375" text="Subject" />
                                           <TableColumn fx:id="teacher_col_address" prefWidth="102.40008544921875" text="Address" />
                                           <TableColumn fx:id="teacher_col_status" minWidth="0.0" prefWidth="89.5999755859375" text="Status" />
                                           <TableColumn fx:id="teacher_col_action" minWidth="0.0" prefWidth="89.5999755859375" text="Action" />
@@ -267,7 +267,7 @@
                                           <TableColumn fx:id="student_col_name" prefWidth="82.4000244140625" text="Name" />
                                           <TableColumn fx:id="student_col_gender" prefWidth="105.60002136230469" text="Gender" />
                                           <TableColumn fx:id="student_col_contact" prefWidth="113.5999755859375" text="Contact Number" />
-                                          <TableColumn fx:id="student_col_description" prefWidth="97.5999755859375" text="Description" />
+                                          <TableColumn fx:id="student_col_description" prefWidth="97.5999755859375" text="Subject" />
                                           <TableColumn fx:id="student_col_date" prefWidth="89.5999755859375" text="Date" />
                                           <TableColumn fx:id="student_col_dateModify" prefWidth="116.0" text="Date Modify" />
                                           <TableColumn fx:id="student_col_dateDelete" minWidth="0.0" prefWidth="120.79998779296875" text="Date Delete" />
@@ -288,13 +288,13 @@
                            <children>
                               <AnchorPane layoutX="4.0" layoutY="9.0" prefHeight="568.0" prefWidth="1024.0">
                                  <children>
-                                    <TableView fx:id="appointment_tableview" layoutX="4.0" layoutY="3.0" prefHeight="564.0" prefWidth="1018.0">
+                                    <TableView fx:id="appointment_tableview" layoutX="4.0" layoutY="46.0" prefHeight="521.0" prefWidth="1018.0">
                                        <columns>
                                           <TableColumn fx:id="appointment_ID" prefWidth="107.3333740234375" text="Appointment ID " />
                                           <TableColumn fx:id="appointment_name" prefWidth="67.6666259765625" text="Name" />
                                           <TableColumn fx:id="appointment_gender" prefWidth="105.60002136230469" text="Gender" />
                                           <TableColumn fx:id="appointment_contact" prefWidth="113.5999755859375" text="Contact Number" />
-                                          <TableColumn fx:id="appointment_description" prefWidth="97.5999755859375" text="Description" />
+                                          <TableColumn fx:id="appointment_description" prefWidth="97.5999755859375" text="Subject" />
                                           <TableColumn fx:id="appointment_date" prefWidth="89.5999755859375" text="Date" />
                                           <TableColumn fx:id="appointment_dateModify" prefWidth="116.0" text="Date Modify" />
                                           <TableColumn fx:id="appointment_dateDelete" minWidth="0.0" prefWidth="120.79998779296875" text="Date Delete" />
@@ -302,7 +302,7 @@
                                           <TableColumn fx:id="appointment_action" minWidth="0.0" prefWidth="91.2000732421875" text="Action" />
                                        </columns>
                                     </TableView>
-                                    <Label layoutX="17.0" layoutY="14.0" prefHeight="18.0" prefWidth="126.0" text="Appointment" visible="false">
+                                    <Label layoutX="17.0" layoutY="14.0" prefHeight="18.0" prefWidth="126.0" text="Appointment">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -325,7 +325,7 @@
                                           <TableColumn fx:id="payment_col_studentID" prefWidth="107.33331298828125" text="Student ID" />
                                           <TableColumn fx:id="payment_col_name" prefWidth="122.66668701171875" text="Name" />
                                           <TableColumn fx:id="payment_col_gender" prefWidth="120.0" text="Gender" />
-                                          <TableColumn fx:id="payment_col_diagnosis" prefWidth="127.3333740234375" text="Diagnosis" />
+                                          <TableColumn fx:id="payment_col_diagnosis" prefWidth="127.3333740234375" text="Evaluate" />
                                           <TableColumn fx:id="payment_col_teacher" minWidth="0.0" prefWidth="112.6666259765625" text="Teacher" />
                                           <TableColumn fx:id="payment_col_date" minWidth="0.0" prefWidth="111.3333740234375" text="Date" />
                                        </columns>

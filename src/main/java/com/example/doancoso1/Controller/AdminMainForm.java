@@ -666,8 +666,8 @@ public class AdminMainForm implements Initializable {
                         , result.getString("password"), result.getString("full_name")
                         , result.getLong("mobile_number"), result.getString("gender")
                         ,result.getString("address"), result.getString("image")
-                        , result.getString("description"), result.getString("diagnosis")
-                        , result.getString("treatment"), result.getString("teacher")
+                        , result.getString("subject"), result.getString("evaluate")
+                        , result.getString("lop"), result.getString("teacher")
                         , result.getString("specialized"), result.getDate("date")
                         , result.getDate("date_modify"), result.getDate("date_delete")
                         , result.getString("status"));
@@ -690,7 +690,7 @@ public class AdminMainForm implements Initializable {
         student_col_name.setCellValueFactory(new PropertyValueFactory<>("fullName"));
         student_col_gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
         student_col_contact.setCellValueFactory(new PropertyValueFactory<>("mobileNumber"));
-        student_col_description.setCellValueFactory(new PropertyValueFactory<>("description"));
+        student_col_description.setCellValueFactory(new PropertyValueFactory<>("subject"));
         student_col_date.setCellValueFactory(new PropertyValueFactory<>("date"));
         student_col_dateModify.setCellValueFactory(new PropertyValueFactory<>("dateModify"));
         student_col_dateDelete.setCellValueFactory(new PropertyValueFactory<>("dateDelete"));
@@ -823,8 +823,8 @@ public class AdminMainForm implements Initializable {
                 aData = new AppointmentData(result.getInt("id"), result.getInt("appointment_id")
                         , result.getString("name"), result.getString("gender")
                         , result.getString("teacher"), result.getString("specialized")
-                        , result.getLong("mobile_number"), result.getString("description")
-                        , result.getString("diagnosis"), result.getString("treatment")
+                        , result.getLong("mobile_number"), result.getString("subject")
+                        , result.getString("evaluate"), result.getString("lop")
                         , result.getString("address"), result.getDate("date")
                         , result.getDate("date_modify"), result.getDate("date_delete")
                         , result.getString("status"), result.getDate("schedule"));
@@ -845,7 +845,7 @@ public class AdminMainForm implements Initializable {
         appointment_name.setCellValueFactory(new PropertyValueFactory<>("name"));
         appointment_gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
         appointment_contact.setCellValueFactory(new PropertyValueFactory<>("mobileNumber"));
-        appointment_description.setCellValueFactory(new PropertyValueFactory<>("description"));
+        appointment_description.setCellValueFactory(new PropertyValueFactory<>("subject"));
         appointment_date.setCellValueFactory(new PropertyValueFactory<>("date"));
         appointment_dateModify.setCellValueFactory(new PropertyValueFactory<>("dateModify"));
         appointment_dateDelete.setCellValueFactory(new PropertyValueFactory<>("dateDelete"));
@@ -899,9 +899,9 @@ public class AdminMainForm implements Initializable {
                                 Data.temp_appGender = aData.getGender();
                                 Data.temp_appMobileNumber =String.valueOf(aData.getMobileNumber());
                                 Data.temp_appAddress = aData.getAddress();
-                                Data.temp_appDescription = aData.getDescription();
-                                Data.temp_appDiagnosis = aData.getDiagnosis();
-                                Data.temp_appTreatment = aData.getTreatment();
+                                Data.temp_appDescription = aData.getSubject();
+                                Data.temp_appDiagnosis = aData.getEvaluate();
+                                Data.temp_appTreatment = aData.getLop();
                                 Data.temp_appTeacher = aData.getTeacherID();
                                 Data.temp_appSpecialized = aData.getSpecialized();
                                 Data.temp_appStatus = aData.getStatus();
@@ -981,8 +981,8 @@ public class AdminMainForm implements Initializable {
             while (result.next()) {
                 pData = new StudentData(result.getInt("id"),
                         result.getInt("student_id"), result.getString("full_name"),
-                        result.getString("gender"), result.getString("description"),
-                        result.getString("diagnosis"), result.getString("treatment"),
+                        result.getString("gender"), result.getString("subject"),
+                        result.getString("evaluate"), result.getString("lop"),
                         result.getString("teacher"), result.getString("image"), result.getDate("date"));
 
                 listData.add(pData);
@@ -1001,7 +1001,7 @@ public class AdminMainForm implements Initializable {
         payment_col_studentID.setCellValueFactory(new PropertyValueFactory<>("studentID"));
         payment_col_name.setCellValueFactory(new PropertyValueFactory<>("fullName"));
         payment_col_gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-        payment_col_diagnosis.setCellValueFactory(new PropertyValueFactory<>("diagnosis"));
+        payment_col_diagnosis.setCellValueFactory(new PropertyValueFactory<>("evaluate"));
         payment_col_teacher.setCellValueFactory(new PropertyValueFactory<>("teacher"));
         payment_col_date.setCellValueFactory(new PropertyValueFactory<>("date"));
 

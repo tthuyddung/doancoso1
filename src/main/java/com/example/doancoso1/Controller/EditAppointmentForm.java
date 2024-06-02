@@ -93,7 +93,7 @@ public class EditAppointmentForm implements Initializable {
                 editAppointment_gender.getSelectionModel().select(result.getString("gender"));
                 editAppointment_contact.setText(result.getString("mobile_number"));
                 editAppointment_address.setText(result.getString("address"));
-                editAppointment_description.setText(result.getString("description"));
+                editAppointment_description.setText(result.getString("subject"));
                 editAppointment_treatment.setText(result.getString("treatment"));
                 editAppointment_teacher.getSelectionModel().select(result.getString("teacher"));
                 editAppointment_specialized.getSelectionModel().select(result.getString("specialized"));
@@ -129,7 +129,7 @@ public class EditAppointmentForm implements Initializable {
                         + editAppointment_name.getText() + "', gender='"
                         + editAppointment_gender.getSelectionModel().getSelectedItem()+ "', mobile_number='"
                         + editAppointment_contact.getText() + "', address='"
-                        + editAppointment_address.getText() + "', description = '"
+                        + editAppointment_address.getText() + "', subject = '"
                         + editAppointment_description.getText() + "', treatment='"
                         + editAppointment_treatment.getText() + "', teacher='"
                         + editAppointment_teacher.getSelectionModel().getSelectedItem()+ "', specialized='"
