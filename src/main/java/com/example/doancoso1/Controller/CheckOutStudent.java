@@ -59,6 +59,9 @@ public class CheckOutStudent implements Initializable {
     public CheckOutStudent() {
     }
 
+//     tính tổng số ngày giữa hai ngày bằng cách sử dụng ChronoUnit.DAYS.between.
+//    Sau đó, nó tính toán tổng giá dựa trên tỷ giá cố định hàng ngày.
+//    Cuối cùng, nó cập nhật nhãn để hiển thị số ngày đã tính và tổng giá.
     public void countBtn() {
         long countDays = 0L;
         if (checkout_Date.getValue() == null && checkout_checkout.getValue() == null) {
@@ -72,6 +75,8 @@ public class CheckOutStudent implements Initializable {
         checkout_totalDay.setText(String.valueOf(countDays));
         checkout_totalPrice.setText(String.valueOf(totalprice));
     }
+
+
     public void payBtn() {
         Date date = new Date();
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());

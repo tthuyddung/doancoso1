@@ -259,7 +259,7 @@ public class StudentMainForm implements Initializable {
                         result.getInt("student_id"),
                         result.getString("subject"),
                         result.getString("evaluate"),
-                        result.getString("treatment"),
+                        result.getString("evaluate"),
                         result.getDate("date"));
 
                 listData.add(pData);
@@ -275,7 +275,7 @@ public class StudentMainForm implements Initializable {
         homeStudentListData = homeStudentGetData();
         home_student_col_description.setCellValueFactory(new PropertyValueFactory("subject"));
         home_student_col_diagnosis.setCellValueFactory(new PropertyValueFactory("evaluate"));
-        home_student_col_treatment.setCellValueFactory(new PropertyValueFactory("treatment"));
+        home_student_col_treatment.setCellValueFactory(new PropertyValueFactory("evaluate"));
         home_student_col_datein.setCellValueFactory(new PropertyValueFactory("date"));
         home_student_tableView.setItems(homeStudentListData);
     }
@@ -290,7 +290,7 @@ public class StudentMainForm implements Initializable {
             result = prepare.executeQuery();
 
             while(result.next()) {
-                AppointmentData aData = new AppointmentData(result.getInt("appointment_id"), result.getString("subject"), result.getString("evaluate"), result.getString("treatment"), result.getString("teacher"), result.getDate("schedule"));
+                AppointmentData aData = new AppointmentData(result.getInt("appointment_id"), result.getString("subject"), result.getString("evaluate"), result.getString("evaluate"), result.getString("teacher"), result.getDate("schedule"));
                 listData.add(aData);
             }
         } catch (Exception e) {
@@ -302,18 +302,18 @@ public class StudentMainForm implements Initializable {
 
     private ObservableList<AppointmentData> homeAppointmentListData;
     public void homeAppointmentDisplayData() {
-//        AppointmentData(Integer appointmentID, String subject, String evaluate, String treatment, String teacherID, java.sql.Date schedule)
+//        AppointmentData(Integer appointmentID, String subject, String evaluate, String evaluate, String teacherID, java.sql.Date schedule)
         homeAppointmentListData = homeAppointmentGetData();
         home_appointment_col_appID.setCellValueFactory(new PropertyValueFactory("appointmentID"));
         home_appointment_col_description.setCellValueFactory(new PropertyValueFactory("subject"));
         home_appointment_col_diagnosis.setCellValueFactory(new PropertyValueFactory("evaluate"));
-        home_appointment_col_treatment.setCellValueFactory(new PropertyValueFactory("treatment"));
+        home_appointment_col_treatment.setCellValueFactory(new PropertyValueFactory("evaluate"));
         home_appointment_col_teacher.setCellValueFactory(new PropertyValueFactory("teacherID"));
         home_appointment_col_schedule.setCellValueFactory(new PropertyValueFactory("schedule"));
         home_appointment_tableView.setItems(homeAppointmentListData);
     }
 
-    // chưa in ra đc thông tin
+
     public void homeTeacherInfoDisplay() {
         String sql = "SELECT * FROM student WHERE student_id = "
                 + Data.student_id;
@@ -525,7 +525,7 @@ public class StudentMainForm implements Initializable {
             new java.sql.Date(date.getTime());
 
             try {
-                if (alert.confirmationMessage("Are you sure you want to book?")) {
+                if (alert.confirmationMessage("Are you sure you want to pay?")) {
                     prepare = connect.prepareStatement(insertData);
                     prepare.setString(1, String.valueOf(tempAppID));
                     prepare.setString(2, String.valueOf(Data.student_id));

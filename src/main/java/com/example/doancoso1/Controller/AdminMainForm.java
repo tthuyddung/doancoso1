@@ -329,6 +329,7 @@ public class AdminMainForm implements Initializable {
 
 
 
+    // tổng gvien hoạt động
     public void dashboard_AT() {
         String sql = "SELECT COUNT(id) FROM teacher WHERE status = 'Active' AND delete_date IS NULL";
         connect = Database.connectDb();
@@ -347,6 +348,7 @@ public class AdminMainForm implements Initializable {
         }
 
     }
+    // tổng hsinh
     public void dashboardTS() {
         String sql = "SELECT COUNT(id) FROM student WHERE date_delete IS NULL";
         connect = Database.connectDb();
@@ -365,7 +367,7 @@ public class AdminMainForm implements Initializable {
         }
 
     }
-
+    // tổng hsinh hoạt động
     public void dashboard_AS() {
         String sql = "SELECT COUNT(id) FROM student WHERE date_delete IS NULL AND status = 'Active'";
         connect = Database.connectDb();
@@ -384,6 +386,7 @@ public class AdminMainForm implements Initializable {
         }
 
     }
+    // tổng cuộc hẹn
     public void dashboard_TA() {
         String sql = "SELECT COUNT(id) FROM appointment WHERE date_delete IS NULL";
         connect = Database.connectDb();
@@ -444,6 +447,7 @@ public class AdminMainForm implements Initializable {
     }
 
     //dashboard
+    //truy xuất dữ liệu giáo viên từ cơ sở dữ liệu và trả về dưới dạng mảng
     public ObservableList<TeacherData> dashboardGetTeacherData() {
         ObservableList<TeacherData> listData = FXCollections.observableArrayList();
 
@@ -479,6 +483,8 @@ public class AdminMainForm implements Initializable {
         dashboard_col_status.setCellValueFactory(new PropertyValueFactory("status"));
         dashboard_tableview.setItems(dashboardListData);
     }
+
+
 
     // thêm dữ liệu teacher vào bảng
     public ObservableList<TeacherData> teacherGetData() {
@@ -1212,7 +1218,6 @@ public class AdminMainForm implements Initializable {
             payment_form.setVisible(false);
             profile_form.setVisible(false);
 
-            // in dữ liệu bảng teacher
             teacherDisplayData();
             teacherActionButton();
             current_form.setText("Teacher's Form");
@@ -1224,7 +1229,6 @@ public class AdminMainForm implements Initializable {
             payment_form.setVisible(false);
             profile_form.setVisible(false);
 
-            // in dữ liệu bảng student
             studentDisplayData();
             studentActionButton();
             current_form.setText("Student's Form");
@@ -1264,10 +1268,6 @@ public class AdminMainForm implements Initializable {
             profileDisplayImage();
             current_form.setText("Profile Form");
 
-
-
-
-
         }
     }
     public void displayUsername(){
@@ -1302,7 +1302,6 @@ public class AdminMainForm implements Initializable {
                 stage.setScene(new Scene(root));
                 stage.show();
 
-                //TO HIDE YOUR MAIN FORM
                 Logout_btn.getScene().getWindow().hide();
             }
         }catch(Exception e){
@@ -1321,7 +1320,6 @@ public class AdminMainForm implements Initializable {
                     }
                     Platform.runLater(() ->{
                         date_time.setText(format.format(new Date()));
-//                        System.out.println("tg: "+date_time);
                     });
                 }
             }

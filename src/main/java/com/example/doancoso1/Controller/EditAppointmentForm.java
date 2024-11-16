@@ -94,7 +94,7 @@ public class EditAppointmentForm implements Initializable {
                 editAppointment_contact.setText(result.getString("mobile_number"));
                 editAppointment_address.setText(result.getString("address"));
                 editAppointment_description.setText(result.getString("subject"));
-                editAppointment_treatment.setText(result.getString("treatment"));
+                editAppointment_treatment.setText(result.getString("evaluate"));
                 editAppointment_teacher.getSelectionModel().select(result.getString("teacher"));
                 editAppointment_specialized.getSelectionModel().select(result.getString("specialized"));
                 editAppointment_status.getSelectionModel().select(result.getString("status"));
@@ -130,7 +130,7 @@ public class EditAppointmentForm implements Initializable {
                         + editAppointment_gender.getSelectionModel().getSelectedItem()+ "', mobile_number='"
                         + editAppointment_contact.getText() + "', address='"
                         + editAppointment_address.getText() + "', subject = '"
-                        + editAppointment_description.getText() + "', treatment='"
+                        + editAppointment_description.getText() + "', evaluate='"
                         + editAppointment_treatment.getText() + "', teacher='"
                         + editAppointment_teacher.getSelectionModel().getSelectedItem()+ "', specialized='"
                         + editAppointment_specialized.getSelectionModel().getSelectedItem() + "', status = '"
@@ -198,25 +198,6 @@ public class EditAppointmentForm implements Initializable {
         }
     }
 
-    //    public void specializedList(){
-//        String sql = "SELECT * FROM teacher WHERE delete_date IS NULL AND teacher_id = '"
-//        + editAppointment_teacher.getSelectionModel().getSelectedItem() +"'";
-//
-//        connect = Database.connectDb();
-//
-//        try{
-//            prepare = connect.prepareStatement(sql);
-//            result = prepare.executeQuery();
-//            ObservableList listData = FXCollections.observableArrayList();
-//
-//            if(result.next()){
-//                listData.add(result.getString("specialized"));
-//            }
-//            editAppointment_specialized.setItems(listData);
-//        }catch(Exception e){
-//            e.printStackTrace();
-//        }
-//    }
     public void specializedList(){
         List<String> genderL = new ArrayList<>();
 
@@ -256,9 +237,6 @@ public class EditAppointmentForm implements Initializable {
         teacherList();
         genderList();
         statusList();
-
-
-
 
     }
 }

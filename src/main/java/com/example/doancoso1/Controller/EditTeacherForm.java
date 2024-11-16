@@ -103,7 +103,6 @@ public class EditTeacherForm implements Initializable {
             result = prepare.executeQuery();
 
             if(result.next()){
-//                editTeacher_id.setText(result.getString("teacher_id"));
                 editTeacher_fullname.setText(result.getString("fullname"));
                 editTeacher_email.setText(result.getString("email"));
                 editTeacher_password.setText(result.getString("password"));
@@ -195,6 +194,7 @@ public class EditTeacherForm implements Initializable {
                                 + "WHERE teacher_id = '" + editTeacher_id.getText() + "'";
                         prepare = connect.prepareStatement(updateData);
                         prepare.executeUpdate();
+                        alert.successMessage("Updated Successfully!");
 
                     } else {
                         alert.errorMessage("Cancelled");
